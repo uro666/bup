@@ -1,4 +1,6 @@
-%bcond_without test
+# disable tests on abf
+# some tests need remote access
+%bcond_with test
 
 Name:		bup
 Version:	0.33.7
@@ -49,7 +51,7 @@ sed -i -e "s|\/usr\/bin\/env bash|\/bin\/bash|g" lib/cmd/bup-import-rdiff-backup
 # rpmlint
 find -type f -name ".gitignore" -exec rm {} \;
 
-# NOTE remove problematic bup-gc test
+# NOTE removed problematic gc test
 # NOTE check upstream if this test is fixed on next release
 rm -f test/ext/test-gc-removes-incomplete-trees
 
